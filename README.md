@@ -132,7 +132,7 @@ jda.addEventListener(new MyEvent());
 ```
 # Contributors
 * Ancutei Catalin-Iulian
-    * [linkedin]()
-    * [facebook]()
-    * [personal page]()
+    * [linkedin](https://www.linkedin.com/in/c%C4%83t%C4%83lin-iulian-ancu%C8%9Bei-189096193/)
+    * [facebook](https://www.facebook.com/catalin.iulian.758)
+    * [personal page](http://students.info.uaic.ro/~catalin.ancutei)
     * email: `ancutei.catalin@gmail.com`
