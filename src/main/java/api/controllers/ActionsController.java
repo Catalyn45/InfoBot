@@ -1,29 +1,49 @@
 package api.controllers;
 
 import bot.Bot;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+class Payload {
+    private String server;
+    private String channel;
+    private String message;
 
-@Controller
-public class AdminController {
-    @PostMapping("/message")
-    public String sendMessage(@RequestBody Map<String, String> payload) {
-        String server = payload.get("server");
-        String channel = payload.get("channel");
-        String message = payload.get("message");
-        
-        Bot bot = Bot.getInstance();
-        bot.sendMessage(server, channel, message);
-        return "success";
+    public String getServer() {
+        return server;
     }
 
-    @GetMapping("/")
-    public String index() {
+    public void setServer(String server) {
+        this.server = server;
+    }
+
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
+
+@RestController
+public class ActionsController {
+    @PostMapping("/message")
+    public String sendMessage(@RequestBody Payload payload) {
+        String server = payload.getServer();
+        String channel = payload.getChannel();
+        String message = payload.getMessage();
+
+        Bot bot = Bot.getInstance();
+        bot.sendMessage(server, channel, message);
+
         return "success";
     }
 }

@@ -24,6 +24,10 @@ class ImagesCommand implements Runnable {
         this.event = event;
     }
 
+
+    // To add a new image you need to add it in the map
+    // The format is 'put(<argument_name>, new Pair<>(<url>, <json_response_field_containing_the_link>)'
+
     private static final Map<String, Pair<String, String>> images = new HashMap<String, Pair<String, String>>() {{
         put("dog", new Pair<>("https://dog.ceo/api/breeds/image/random", "message"));
         put("anime", new Pair<>("https://api.waifu.pics/sfw/waifu", "url"));
@@ -60,7 +64,7 @@ class ImagesCommand implements Runnable {
         }
 
         if(!images.containsKey(key)) {
-            event.getChannel().sendMessage("Can't find what are u looking for... try `!image --types` to see" +
+            event.getChannel().sendMessage("Can't find what are u looking for... try `!image --types` to see " +
                                             "the available images!").queue();
             return;
         }

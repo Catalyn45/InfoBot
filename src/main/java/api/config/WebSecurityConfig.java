@@ -27,8 +27,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf()
+                .disable()
                 .authorizeRequests()
+                // The index page and the message endpoint required authorized access
                 .antMatchers("/", "/message")
                     .authenticated()
                 .anyRequest()

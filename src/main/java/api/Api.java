@@ -12,6 +12,5 @@ public class Api {
     public static void main(String[] args) throws LoginException, InterruptedException {
         SpringApplication.run(Api.class, args);
         Bot bot = Bot.getInstance(Tokens.DISCORD_TOKEN);
-        bot.run();
     }
 }

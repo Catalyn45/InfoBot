@@ -6,33 +6,42 @@ import net.dv8tion.jda.api.JDABuilder;
 import javax.security.auth.login.LoginException;
 
 public class Bot {
-    private final String token;
-    private JDA jda;
+    private final JDA jda;
 
     private static Bot instance = null;
 
-    private Bot(String token) {
-        this.token = token;
-    }
-
-    public static Bot getInstance(String token) {
-        if(instance == null)
-            instance = new Bot(token);
-
-        return instance;
-    }
-
-    public static Bot getInstance() {
-        return instance;
-    }
-
-    public void run() throws LoginException, InterruptedException {
+    private Bot(String token) throws LoginException {
         jda = JDABuilder.createDefault(token).build();
         jda.addEventListener(new NewsEvent());
         jda.addEventListener(new AskEvent());
         jda.addEventListener(new ImagesEvent());
         jda.addEventListener(new HelpEvent());
-        jda.awaitReady();
+    }
+
+    public static Bot getInstance(String token) throws LoginException {
+        if(instance == null) {
+            instance = new Bot(token);
+
+            try {
+                instance.jda.awaitReady();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return instance;
+    }
+
+    public static Bot getInstance() {
+        if(instance != null) {
+            try {
+                instance.jda.awaitReady();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return instance;
     }
 
     public void sendMessage(String server, String channel, String message) {

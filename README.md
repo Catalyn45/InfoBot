@@ -7,11 +7,11 @@ This project represents a discord bot who can execute different commands.
 ## Dependencies
 
 * [Java Discord API](https://github.com/DV8FromTheWorld/JDA) (For the discord bot executing the commands.)
-* [Spring-Boot](https://spring.io/projects/spring-boot) (For the web server who can be accessed by the administrator.)
+* [Spring-Boot](https://spring.io/projects/spring-boot) (For the web server which can be accessed by the administrator.)
 * [Hibernate](https://hibernate.org/) (For communicating with the database.)
 * [Gson](https://github.com/google/gson) (For reading the response from API requests.)
 * [Commons I/O](https://commons.apache.org/proper/commons-io/) (For general operations.)
-* [jdbc postgresql](https://jdbc.postgresql.org/) (The driver for the datavase.)
+* [jdbc postgresql](https://jdbc.postgresql.org/) (The driver for the database.)
 
 ## Requirements
 * [Java 1.8](https://www.oracle.com/ro/java/technologies/javase/javase-jdk8-downloads.html) or greater.

@@ -10,23 +10,22 @@
 </head>
 
 <body>
-    <form action="/message" method="post">
-        <div id="container">
-            <label for="server">Server Name</label>
-            <input type="text" name="server" id="server">
+    <div id="container">
+        <label for="server">Server Name</label>
+        <input type="text" id="server">
 
-            <label for="channel">Channel name</label>
-            <input type="text" name="channel" id="channel">
+        <label for="channel">Channel name</label>
+        <input type="text" id="channel">
 
-            <label for="message">Message</label>
-            <textarea name="message" id="message"></textarea>
+        <label for="message">Message</label>
+        <textarea id="message"></textarea>
 
-            <input type="submit" value="Submit">
-            <form action="/logout">
-                <input type="submit" value="Logout">
-            </form>
-        </div>
-    </form>
+        <input type="submit" onclick="sendMessage()">
+        <form action="/logout">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
