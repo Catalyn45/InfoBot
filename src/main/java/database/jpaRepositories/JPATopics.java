@@ -5,6 +5,7 @@ import database.entities.TopicsEntity;
 import database.repositories.TopicsRepository;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class JPATopics extends JPARepository<TopicsEntity> implements TopicsRepository {
     @Override
@@ -26,6 +27,17 @@ public class JPATopics extends JPARepository<TopicsEntity> implements TopicsRepo
                 .getSingleResult();
         close();
 
+        return result;
+    }
+
+    @Override
+    public List<TopicsEntity> all() {
+        open();
+
+        List<TopicsEntity> result = entityManager.createNamedQuery("topics.all", TopicsEntity.class)
+                .getResultList();
+
+        close();
         return result;
     }
 }

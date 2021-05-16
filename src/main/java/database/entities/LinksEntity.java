@@ -27,8 +27,6 @@ public class LinksEntity {
     public LinksEntity() { }
 
     @Id
-    @SequenceGenerator(name = "links_seq_gen", sequenceName = "links_id_seq", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "links_seq_gen")
     @Column(name = "id")
     public int getId() {
         return id;

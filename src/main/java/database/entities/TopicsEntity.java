@@ -10,6 +10,8 @@ import java.util.Objects;
                 query = "SELECT topics FROM TopicsEntity topics WHERE topics.id=:id"),
         @NamedQuery(name = "topics.findByName",
                 query = "SELECT topics FROM TopicsEntity topics WHERE topics.name=:name"),
+        @NamedQuery(name = "topics.all",
+                query= "SELECT topics FROM TopicsEntity topics")
 })
 public class TopicsEntity {
     private int id;
@@ -22,8 +24,6 @@ public class TopicsEntity {
     public TopicsEntity() { }
 
     @Id
-    @SequenceGenerator(name = "topics_seq_gen", sequenceName = "topics_id_seq", allocationSize=1)
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "topics_seq_gen")
     @Column(name = "id")
     public int getId() {
         return id;
