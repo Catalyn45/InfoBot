@@ -79,7 +79,7 @@ class AskCommand implements Runnable {
 
             con.disconnect();
 
-            if(length > 0)
+            if(length - 1 > 0)
                 event.getChannel().sendMessage(text).queue();
             else
                 event.getChannel().sendMessage("idk...").queue();
